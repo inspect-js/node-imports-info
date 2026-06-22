@@ -6,13 +6,10 @@ var intersects = require('semver').intersects;
 
 var ranges = require('./ranges');
 
-/** @import { Category, RangePair } from './types' */
-
 /** @type {import('./getCategoriesForRange')} */
 module.exports = function getCategoriesForRange(rangeA) {
 	return flatMap(
 		entries(ranges),
-		/** @type {(entry: RangePair) => Category[] | []} */
 		function (entry) {
 			var rangeB = entry[0];
 			var category = entry[1];

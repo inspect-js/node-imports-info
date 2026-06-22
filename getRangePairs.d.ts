@@ -1,4 +1,4 @@
-import type { Category, Range } from "./types";
+import type { Category, Range } from './types';
 
 declare function getRangePairs(): [Range, Category][];
 
