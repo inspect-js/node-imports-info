@@ -1,6 +1,6 @@
 'use strict';
 
-var $RangeError = require('es-errors/range');
+var makeGetCategoryFlags = require('node-package-field-info/makeGetCategoryFlags');
 
 var isCategory = require('./isCategory');
 
@@ -13,6 +13,7 @@ var patternsCategories = {
 	patterns: true,
 	'pattern-trailers': true,
 	'pattern-trailers-no-dir-slash': true,
+	'pattern-trailers-no-dir-slash+module-sync': true,
 	'subpath-imports-slash': true
 };
 
@@ -22,6 +23,7 @@ var patternTrailersCategories = {
 	__proto__: null,
 	'pattern-trailers': true,
 	'pattern-trailers-no-dir-slash': true,
+	'pattern-trailers-no-dir-slash+module-sync': true,
 	'subpath-imports-slash': true
 };
 
@@ -42,15 +44,9 @@ var subpathSlashCategories = {
 };
 
 /** @type {import('./getCategoryFlags')} */
-module.exports = function getCategoryFlags(category) {
-	if (!isCategory(category)) {
-		throw new $RangeError('invalid category ' + category);
-	}
-
-	return {
-		patterns: !!patternsCategories[category],
-		patternTrailers: !!patternTrailersCategories[category],
-		dirSlash: !!dirSlashCategories[category],
-		subpathSlash: !!subpathSlashCategories[category]
-	};
-};
+module.exports = makeGetCategoryFlags(isCategory, {
+	patterns: patternsCategories,
+	patternTrailers: patternTrailersCategories,
+	dirSlash: dirSlashCategories,
+	subpathSlash: subpathSlashCategories
+});

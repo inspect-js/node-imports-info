@@ -84,6 +84,12 @@ test('getCategoryFlags', function (t) {
 		);
 
 		st.deepEqual(
+			getCategoryFlags('pattern-trailers-no-dir-slash+module-sync'),
+			{ patterns: true, patternTrailers: true, dirSlash: false, subpathSlash: false },
+			'pattern-trailers-no-dir-slash+module-sync has the same flags (it differs only in conditions)'
+		);
+
+		st.deepEqual(
 			getCategoryFlags('subpath-imports-slash'),
 			{ patterns: true, patternTrailers: true, dirSlash: false, subpathSlash: true },
 			'subpath-imports-slash has patterns, patternTrailers, and subpathSlash but not dirSlash'
