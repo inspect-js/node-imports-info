@@ -31,6 +31,7 @@ Note that `imports` resolution also uses conditions (`node`, `require`, `import`
 
 ## Related packages
  - [`node-exports-info`](https://www.npmjs.com/package/node-exports-info): the same, for the `exports` field
+ - [`has-package-imports`](https://www.npmjs.com/package/has-package-imports): feature-detect your node version’s `imports` support
 
 ## Tests
 Simply clone the repo, `npm install`, and run `npm test`
