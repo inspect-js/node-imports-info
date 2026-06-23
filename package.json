@@ -1,6 +1,6 @@
 {
 	"name": "node-imports-info",
-	"version": "1.0.0",
+	"version": "2.0.0",
 	"description": "Info about node `imports` field support: version ranges, categories, etc.",
 	"main": false,
 	"exports": {
